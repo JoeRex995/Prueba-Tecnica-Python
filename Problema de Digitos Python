@@ -1,0 +1,42 @@
+#Dado un n que pertenece a Z y un p que pertenece a Z+
+#Buscamos encontrar un k que pertenezca a Z si existe, tq
+#d_1^p+d_2^(p+1)+d_3^(p+2)+d_4^(p+3)+...+d_n^(p+n-1)=n*k
+#De no existir dicho k se retorna -1
+
+'''dig_pow(89, 1) should return 1 since 8¹ + 9² = 89 = 89 * 1
+dig_pow(92, 1) should return -1 since there is no k such as 9¹ + 2² equals 92 * k
+dig_pow(695, 2) should return 2 since 6² + 9³ + 5⁴= 1390 = 695 * 2
+dig_pow(46288, 3) should return 51 since 4³ + 6⁴+ 2⁵ + 8⁶ + 8⁷ = 2360688 = 46288 * 51'''
+
+print("Inserte un valor entero positivo para n")
+n=input()
+print("Inserte un valor entero positivo para p")
+p=input()
+
+def dig_pow(n1,p1):
+    #Se convierte los valores dados por el usuario en enteros
+    nint=int(n1)
+    p=int(p1)
+
+    #Se verificara que el valor ingresado sea positivo
+    if(nint<=0):
+      print("El valor de k es igual a ", 0)
+    else:
+      #"Digitos" es un arreglo que almacenara los digitos del numero "n"
+      digitos=[]
+      #La variable aux almacenara las sumas de las potencias de los digitos del numero "n"
+      aux=0
+      for i in range(len(n1)):
+        digito=int(n1[i])
+        digitos.append(digito)
+
+        digitos[i]=pow(digitos[i],p+i)
+        aux=digitos[i]+aux
+
+      if(aux%nint==0):
+        print("El Valor de k es igual a: ", aux//nint)
+
+      else:
+        print("El valor de k es igual a: ", -1)
+
+dig_pow(n,p)
