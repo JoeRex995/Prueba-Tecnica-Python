@@ -1,1 +1,2 @@
 # Prueba-Tecnica-Python
+# En mi codigo, se le solicitan los números al usuario, dado que estos ingresan como cadenas de texto, estos se convierten en enteros dentro de la funcion Dig_pow, ademas se aprovecha la condicion de Cadena de Texto, para trabajar la longitud del número y los digitos de manera mas directa. Para posteriormente elevar cada digito a las determinadas potencias y verificar si el modulo entre la suma de los digitos y el numero "n" es 0.
